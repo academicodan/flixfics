@@ -10,6 +10,8 @@ import './home.scss';
 import { Landing } from "../../components/Landing";
 import { SignInUpModal } from "../../components/Modal";
 import { ShowModalInterface } from "../../types/modal";
+import { useMutation } from "@apollo/client";
+import { CREATE_CLIENTE_MUTATION } from "../../graphql/Mutations";
 
 export const Home = () => {
   const { apiPost } = usePost("/clientes");
@@ -21,11 +23,28 @@ export const Home = () => {
   const [clientes, setClientes] = useState<Cliente[]>([]);
   console.log("clientes", clientes);
 
-  const cadastrarCliente = async (cliente: Cliente) => {
-    console.log("Cliente cadastrado");
-    await apiPost(cliente);
-    setClientes([...clientes, cliente]);
-  };
+  const [createCliente, { error }] = useMutation(CREATE_CLIENTE_MUTATION)
+
+  // const cadastrarCliente = async (cliente: Cliente) => {
+  //   console.log("Cliente cadastrado");
+  //   await apiPost(cliente);
+  //   setClientes([...clientes, cliente]);
+  // };
+
+  const cadastrarCliente = (cliente: Cliente) => {
+    createCliente({
+      variables: {
+        nome: cliente.nome,
+        sobrenome: cliente.sobrenome,
+        email: cliente.email,
+        senha: cliente.senha
+      }
+    });
+    setClientes([...clientes, cliente])
+    if(error) {
+      console.log(error)
+    }
+  }
   
   const handleClose = () => setShowModal({
     show: false,
@@ -36,7 +55,9 @@ export const Home = () => {
     type: type
   });
 
-
+  const loginCliente = () => {
+    return alert("Cliente Logado!");
+  }
   
   const listUserReview: UserReviewProps[] = [{
     profile: "https://avatars.githubusercontent.com/academicodan",
@@ -56,7 +77,7 @@ export const Home = () => {
   return (
     <div className="landing-page">
       <Container>
-        <SignInUpModal show={showModal} handleClose={handleClose} onCadastroCliente={cadastrarCliente}/>
+        <SignInUpModal show={showModal} handleClose={handleClose} onCadastroCliente={cadastrarCliente} onLoginCliente={loginCliente}/>
         <Row className="banner">
           <Col>
             <Landing />

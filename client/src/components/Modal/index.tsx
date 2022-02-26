@@ -10,9 +10,10 @@ interface ModalProps {
     show: ShowModalInterface;
     handleClose: () => void;
     onCadastroCliente: (cliente: Cliente) => void;
+    onLoginCliente: () => void;
 }
 
-export const SignInUpModal = ({ show, handleClose, onCadastroCliente }: ModalProps) => {
+export const SignInUpModal = ({ show, handleClose, onCadastroCliente, onLoginCliente }: ModalProps) => {
     const [cliente, setCliente] = useState<TemporaryClientState>();
     console.log({cliente})
     const checkMissingClientData = () => {
@@ -25,8 +26,6 @@ export const SignInUpModal = ({ show, handleClose, onCadastroCliente }: ModalPro
         return false;
     }
 
-    console.log(checkMissingClientData())
-
     const handleFormSubmit = () => {
         if (cliente && !checkMissingClientData()) {
             onCadastroCliente({
@@ -38,6 +37,7 @@ export const SignInUpModal = ({ show, handleClose, onCadastroCliente }: ModalPro
             handleClose();
         }
     }
+
 
     const SignUpModal = show.type === "up" ?  (
         <Modal show={show.show} onHide={handleClose}>
@@ -65,7 +65,7 @@ export const SignInUpModal = ({ show, handleClose, onCadastroCliente }: ModalPro
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>Close</Button>
-                <Button variant="primary" disabled={checkMissingClientData()} onClick={handleFormSubmit}>Save</Button>
+                <Button variant="primary" onClick={onLoginCliente}>Save</Button>
             </Modal.Footer>
         </Modal>
     ) : <></>;
