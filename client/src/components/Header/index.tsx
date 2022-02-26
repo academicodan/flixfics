@@ -6,6 +6,7 @@ export const Header = () => {
     <Navbar expand="lg">
       <Container>
         <NavbarBrand className="navbar-home" href="/">FLIXFICS</NavbarBrand>
+        <NavbarBrand href='/clientes'>Clientes</NavbarBrand>
       </Container>
     </Navbar>
   );
