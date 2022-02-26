@@ -1,0 +1,10 @@
+{
+    "translation": {
+        "registry": {
+            "name": "Name",
+            "last_name": "Last Name",
+            "password": "Password",
+            "email": "Email"
+        }
+    }
+}

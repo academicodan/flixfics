@@ -1,0 +1,10 @@
+{
+    "translation": {
+        "cadastro": {
+            "nome": "Nome",
+            "sobrenome": "Sobrenome",
+            "senha": "Senha",
+            "email": "Email"
+        }
+    }
+}
