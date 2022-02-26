@@ -12,7 +12,7 @@ import { SignInUpModal } from "../../components/Modal";
 import { ShowModalInterface } from "../../types/modal";
 import { useTranslation } from "react-i18next";
 
-export const Home = () => {
+const Home = () => {
   const { t } = useTranslation();
   const { apiPost } = usePost("/clientes");
   const [showModal, setShowModal] = useState<ShowModalInterface>({
@@ -76,3 +76,5 @@ export const Home = () => {
 
   );
 };
+
+export default Home;

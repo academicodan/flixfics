@@ -29,6 +29,7 @@
                 "entrar": "Entrar com Google",
                 "sair": "Sair"
             } 
-        }
+        },
+        "fallback": "Carregando..."
     }
 }
