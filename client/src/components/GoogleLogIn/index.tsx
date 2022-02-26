@@ -24,7 +24,7 @@ function Login() {
                 clientId={clientId}
                 render={renderProps => (
                     <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                        {t('login.label')}
+                        {t('login.entrar')}
                     </Button>
                 )}
                 buttonText= {t('login.label')}

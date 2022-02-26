@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <Navbar expand="lg">
       <Container>
-        <NavbarBrand className="navbar-home" href="/">{t('translation.home.title')}</NavbarBrand>
+        <NavbarBrand className="navbar-home" href="/">{t('home.title')}</NavbarBrand>
       </Container>
     </Navbar>
   );

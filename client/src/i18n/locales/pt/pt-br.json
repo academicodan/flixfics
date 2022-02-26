@@ -11,13 +11,24 @@
         },
         "copyright": "Copyright© 2022",
         "login": {
-            "label": "Login",
+            "entrar": "Entrar",
             "senha": "Senha",
-            "email": "Email"
+            "email": "Email",
+            "cadastro": "Cadastrar"
         },
         "logout": { 
-            "success": "Logout feito com sucesso!",
-            "label": "Logout"
+            "success": "Saída feita com sucesso!",
+            "label": "Sair"
+        },
+        "modal": {
+            "label": "Cadastro de Usuários",
+            "cadastro": "Cadastrar",
+            "fechar": "Fechar",
+            "salvar": "Salvar",
+            "google": {
+                "entrar": "Entrar com Google",
+                "sair": "Sair"
+            } 
         }
     }
 }

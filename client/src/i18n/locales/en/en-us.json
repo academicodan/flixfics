@@ -11,13 +11,24 @@
         },
         "copyright": "Copyright© 2022",
         "login": {
-            "label": "Login",
+            "login": "Login",
             "password": "Password",
-            "email": "Email"
+            "email": "Email",
+            "register": "Register"
         },
         "logout": { 
             "success": "Logout made successfully!",
             "label": "Logout"
+        },
+        "modal": {
+            "label": "Users Registration",
+            "register": "Register",
+            "close": "Close",
+            "save": "Save",
+            "google": {
+                "sign_in": "Sign In",
+                "sign_out": "Sign Out"
+            }  
         }
     }
 }

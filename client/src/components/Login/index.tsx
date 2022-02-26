@@ -22,12 +22,12 @@ const Login = () => {
             <Row>
               <Col>
                 <Form.Group className="mb-3" controlId="senha">
-                  <Form.Label>Senha</Form.Label>
+                  <Form.Label>{t('login.senha')}</Form.Label>
                   <Form.Control
                     required
                     name="senha"
                     type="password"
-                    placeholder="Senha"
+                    placeholder={t('login.senha')}
                   />
                 </Form.Group>
               </Col>
