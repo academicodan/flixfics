@@ -1,11 +1,13 @@
 import { Container, Navbar, NavbarBrand } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import './header.scss';
 
 export const Header = () => {
+  const { t } = useTranslation();
   return (
     <Navbar expand="lg">
       <Container>
-        <NavbarBrand className="navbar-home" href="/">FLIXFICS</NavbarBrand>
+        <NavbarBrand className="navbar-home" href="/">{t('translation.home.title')}</NavbarBrand>
       </Container>
     </Navbar>
   );

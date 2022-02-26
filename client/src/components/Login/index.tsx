@@ -1,18 +1,20 @@
 import { Col, Form, Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+  const { t } = useTranslation();
     return (
         <div className="pt-4">
           <Form>
             <Row>
               <Col>
                 <Form.Group className="mb-3" controlId="email">
-                  <Form.Label>Email</Form.Label>
+                  <Form.Label>{t('login.email')}</Form.Label>
                   <Form.Control
                     required
                     name="email"
                     type="text"
-                    placeholder="Email"
+                    placeholder={t('login.email')}
                   />
                 </Form.Group>
               </Col>

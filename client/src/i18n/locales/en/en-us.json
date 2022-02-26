@@ -5,6 +5,19 @@
             "last_name": "Last Name",
             "password": "Password",
             "email": "Email"
+        },
+        "home": {
+            "title": "FLIXFICS"
+        },
+        "copyright": "Copyright© 2022",
+        "login": {
+            "label": "Login",
+            "password": "Password",
+            "email": "Email"
+        },
+        "logout": { 
+            "success": "Logout made successfully!",
+            "label": "Logout"
         }
     }
 }

@@ -141,13 +141,13 @@ export const CadastroClientes = (props: ClienteProps) => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="nome">
-              <Form.Label>{t("translation.cadastro.name")}</Form.Label>
+              <Form.Label>{t('cadastro.nome')}</Form.Label>
               <Form.Control
                 required
                 value={nome}
                 name="nome"
                 onChange={nomeChangeHandler}
-                placeholder={t("translation.cadastro.name")}
+                placeholder={t('cadastro.nome')}
                 type="text"
               />
             </Form.Group>
@@ -156,14 +156,14 @@ export const CadastroClientes = (props: ClienteProps) => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="sobrenome">
-              <Form.Label>{t("translation.cadastro.sobrenome")}</Form.Label>
+              <Form.Label>{t('cadastro.sobrenome')}</Form.Label>
               <Form.Control
                 required
                 value={sobrenome}
                 name="sobrenome"
                 onChange={sobrenomeChangeHandler}
                 type="text"
-                placeholder={t("translation.cadastro.sobrenome")}
+                placeholder={t('cadastro.sobrenome')}
               />
             </Form.Group>
           </Col>
@@ -171,7 +171,7 @@ export const CadastroClientes = (props: ClienteProps) => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="senha">
-              <Form.Label>{t("translation.cadastro.senha")}</Form.Label>
+              <Form.Label>{t('cadastro.senha')}</Form.Label>
               <Form.Control
                 required
                 value={senhaState.value}
@@ -179,7 +179,7 @@ export const CadastroClientes = (props: ClienteProps) => {
                 onChange={senhaChangeHandler}
                 isValid={senhaState.isValid}
                 type="password"
-                placeholder={t("translation.cadastro.senha")}
+                placeholder={t('cadastro.senha')}
                 onBlur={validateSenhaHandler}
               />
             </Form.Group>
@@ -188,7 +188,7 @@ export const CadastroClientes = (props: ClienteProps) => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>{t("translation.cadastro.email")}</Form.Label>
+              <Form.Label>{t('cadastro.email')}</Form.Label>
               <Form.Control
                 required
                 value={emailState.value}
@@ -196,7 +196,7 @@ export const CadastroClientes = (props: ClienteProps) => {
                 onChange={emailChangeHandler}
                 isValid={emailState.isValid}
                 type="text"
-                placeholder={t("translation.cadastro.email")}
+                placeholder={t('cadastro.email')}
                 onBlur={validateEmailHandler}
               />
             </Form.Group>
