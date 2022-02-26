@@ -1,13 +1,31 @@
-import { Meta, Story } from "@storybook/react";
-import { Navbar } from "react-bootstrap";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import Navbar from "./Navbar";
 
-const meta: Meta = {
-    title: "Form",
-    component: Navbar,
-}
+export const meta = {
+  title: "Navbar",
+  component: Navbar,
+} as ComponentMeta<typeof Navbar>;
 
-export default meta;
+const Template: ComponentStory<typeof Navbar> = (args) => (
+  <Navbar {...args} />
+);
 
-const Template: Story<{ bg: 'light' | 'dark' | 'primary', expand: 'sm' | 'md' | 'lg' | 'xl' | 'xxl'}> = (args) => <Navbar {...args} />;
+export const Main = Template.bind({});
+Main.args = {
+  bg: "light",
+  label: "Default Navbar",
+};
 
-Template.bind({});  
+export const Dark = Template.bind({});
+Dark.args = {
+  backgroundColor: "dark",
+  color: "#fdfbfb",
+  label: "Dark Navbar",
+};
+
+export const Customized = Template.bind({});
+Customized.args = {
+  backgroundColor: "#14213D",
+  label: "Customized Navbar",
+  color: "#FCA311",
+};
