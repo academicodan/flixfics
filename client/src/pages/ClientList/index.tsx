@@ -4,7 +4,7 @@ import { Cliente } from "../../types/cliente";
 import { LOAD_CLIENTES } from "../../graphql/Queries";
 
 
-export const ClientList = () => {
+const ClientList = () => {
     const [clientes, setClientes] = useState<Cliente[]>([])
     const { data, loading, error} = useQuery(LOAD_CLIENTES);
 
@@ -18,3 +18,5 @@ export const ClientList = () => {
 
     return <>{JSON.stringify(clientes)}</>
 };
+
+export default ClientList;

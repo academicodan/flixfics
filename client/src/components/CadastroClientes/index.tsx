@@ -1,8 +1,12 @@
 import { ChangeEvent, useEffect, useReducer, useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import { TemporaryClientState } from "../../types/cliente";
+import { useTranslation } from "react-i18next";
 
-const emailReducer = (state: { value: string }, action: { type: string, value: string }) => {
+const emailReducer = (
+  state: { value: string },
+  action: { type: string; value: string }
+) => {
   if (action.type === "USER_INPUT") {
     return {
       value: action.value,
@@ -19,7 +23,7 @@ const emailReducer = (state: { value: string }, action: { type: string, value: s
 
   if (action.type === "FORM_CLEANUP") {
     return {
-      value: '',
+      value: "",
       isValid: false,
     };
   }
@@ -28,7 +32,10 @@ const emailReducer = (state: { value: string }, action: { type: string, value: s
 };
 
 // Fazer validações para senha
-const senhaReducer = (state: { value: string }, action: { type: string, value: string }) => {
+const senhaReducer = (
+  state: { value: string },
+  action: { type: string; value: string }
+) => {
   if (action.type === "USER_INPUT") {
     return {
       value: action.value,
@@ -45,7 +52,7 @@ const senhaReducer = (state: { value: string }, action: { type: string, value: s
 
   if (action.type === "FORM_CLEANUP") {
     return {
-      value: '',
+      value: "",
       isValid: false,
     };
   }
@@ -53,12 +60,14 @@ const senhaReducer = (state: { value: string }, action: { type: string, value: s
   return { value: "", isValid: false };
 };
 
-interface ClienteProps {
+export interface ClienteProps {
   handleClose: () => void;
   setCliente: (props: TemporaryClientState) => void;
 }
 
 export const CadastroClientes = (props: ClienteProps) => {
+  const { t } = useTranslation();
+
   const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
 
@@ -93,38 +102,38 @@ export const CadastroClientes = (props: ClienteProps) => {
   };
 
   const validateSenhaHandler = () => {
-    dispatchSenha({ type: 'INPUT_BLUR', value: '' })
+    dispatchSenha({ type: "INPUT_BLUR", value: "" });
   };
 
   const validateEmailHandler = () => {
-    dispatchEmail({ type: 'INPUT_BLUR', value: '' })
-  }
+    dispatchEmail({ type: "INPUT_BLUR", value: "" });
+  };
 
   const cleanForm = () => {
-    setNome('');
-    setSobrenome('');
-    dispatchEmail({ type: 'FORM_CLEANUP', value: '' });
-    dispatchSenha({ type: 'FORM_CLEANUP', value: '' });
-  }
+    setNome("");
+    setSobrenome("");
+    dispatchEmail({ type: "FORM_CLEANUP", value: "" });
+    dispatchSenha({ type: "FORM_CLEANUP", value: "" });
+  };
 
   useEffect(() => {
     cleanForm();
-  }, [])
+  }, []);
 
   useEffect(() => {
-      props.setCliente({
-        nome: nome,
-        sobrenome: sobrenome,
-        email: {
-          value: emailState.value,
-          isValid: emailState.isValid
-        },
-        senha: {
-          value: senhaState.value,
-          isValid: senhaState.isValid
-        }
-      })
-    }, [nome, sobrenome, emailState, senhaState]);
+    props.setCliente({
+      nome: nome,
+      sobrenome: sobrenome,
+      email: {
+        value: emailState.value,
+        isValid: emailState.isValid,
+      },
+      senha: {
+        value: senhaState.value,
+        isValid: senhaState.isValid,
+      },
+    });
+  }, [nome, sobrenome, emailState, senhaState]);
 
   return (
     <div className="pt-4">
@@ -132,22 +141,29 @@ export const CadastroClientes = (props: ClienteProps) => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="nome">
-              <Form.Label>Nome</Form.Label>
-              <Form.Control required value={nome} name="nome" onChange={nomeChangeHandler} />
+              <Form.Label>{t('cadastro.nome')}</Form.Label>
+              <Form.Control
+                required
+                value={nome}
+                name="nome"
+                onChange={nomeChangeHandler}
+                placeholder={t('cadastro.nome')}
+                type="text"
+              />
             </Form.Group>
           </Col>
         </Row>
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="sobrenome">
-              <Form.Label>Sobrenome</Form.Label>
+              <Form.Label>{t('cadastro.sobrenome')}</Form.Label>
               <Form.Control
                 required
                 value={sobrenome}
                 name="sobrenome"
                 onChange={sobrenomeChangeHandler}
                 type="text"
-                placeholder="Sobrenome"
+                placeholder={t('cadastro.sobrenome')}
               />
             </Form.Group>
           </Col>
@@ -155,7 +171,7 @@ export const CadastroClientes = (props: ClienteProps) => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="senha">
-              <Form.Label>Senha</Form.Label>
+              <Form.Label>{t('cadastro.senha')}</Form.Label>
               <Form.Control
                 required
                 value={senhaState.value}
@@ -163,7 +179,7 @@ export const CadastroClientes = (props: ClienteProps) => {
                 onChange={senhaChangeHandler}
                 isValid={senhaState.isValid}
                 type="password"
-                placeholder="Senha"
+                placeholder={t('cadastro.senha')}
                 onBlur={validateSenhaHandler}
               />
             </Form.Group>
@@ -172,7 +188,7 @@ export const CadastroClientes = (props: ClienteProps) => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>{t('cadastro.email')}</Form.Label>
               <Form.Control
                 required
                 value={emailState.value}
@@ -180,7 +196,7 @@ export const CadastroClientes = (props: ClienteProps) => {
                 onChange={emailChangeHandler}
                 isValid={emailState.isValid}
                 type="text"
-                placeholder="Email"
+                placeholder={t('cadastro.email')}
                 onBlur={validateEmailHandler}
               />
             </Form.Group>

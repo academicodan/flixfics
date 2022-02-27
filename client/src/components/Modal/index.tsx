@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, Modal } from "react-bootstrap"
+import { useTranslation } from 'react-i18next';
 import LoginHooks from '../../hooks/loginHooks';
 import { Cliente, TemporaryClientState } from "../../types/cliente"
 import { ShowModalInterface } from '../../types/modal';
@@ -14,8 +15,8 @@ interface ModalProps {
 }
 
 export const SignInUpModal = ({ show, handleClose, onCadastroCliente, onLoginCliente }: ModalProps) => {
+    const { t } = useTranslation();
     const [cliente, setCliente] = useState<TemporaryClientState>();
-    console.log({cliente})
     const checkMissingClientData = () => {
         if (!cliente ||
             !cliente.nome ||
@@ -32,24 +33,23 @@ export const SignInUpModal = ({ show, handleClose, onCadastroCliente, onLoginCli
                 nome: cliente.nome,
                 sobrenome: cliente.sobrenome,
                 email: cliente.email.value,
-                senha: cliente.email.value
+                senha: cliente.senha.value
             });
             handleClose();
         }
     }
 
-
     const SignUpModal = show.type === "up" ?  (
         <Modal show={show.show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Cadastro de Usuários</Modal.Title>
+                <Modal.Title>{t('modal.label')}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <CadastroClientes setCliente={setCliente} handleClose={handleClose}
                 /> </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>Close</Button>
-                <Button variant="primary" disabled={checkMissingClientData()} onClick={handleFormSubmit}>Save</Button>
+                <Button variant="secondary" onClick={handleClose}>{t('modal.fechar')}</Button>
+                <Button variant="primary" disabled={checkMissingClientData()} onClick={handleFormSubmit}>{t('modal.salvar')}</Button>
                 <LoginHooks />
             </Modal.Footer>
         </Modal>
@@ -58,14 +58,14 @@ export const SignInUpModal = ({ show, handleClose, onCadastroCliente, onLoginCli
     const SignInModal = show.type === "in" ? (
         <Modal show={show.show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Entrar</Modal.Title>
+                <Modal.Title>{t('login.entrar')}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Login />
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>Close</Button>
-                <Button variant="primary" onClick={onLoginCliente}>Save</Button>
+                <Button variant="secondary" onClick={handleClose}>{t('modal.fechar')}</Button>
+                <Button variant="primary" onClick={onLoginCliente}>{t('modal.salvar')}</Button>
             </Modal.Footer>
         </Modal>
     ) : <></>;

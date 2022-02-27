@@ -6,14 +6,16 @@ import { usePost } from "../../hooks/customHooks";
 import { ListUserReview } from "../../components/ListUserReview";
 import { UserReviewProps } from "../../components/UserReview";
 // import LoginHooks from "../../hooks/loginHooks";
-import './home.scss';
 import { Landing } from "../../components/Landing";
 import { SignInUpModal } from "../../components/Modal";
 import { ShowModalInterface } from "../../types/modal";
+import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
 import { CREATE_CLIENTE_MUTATION } from "../../graphql/Mutations";
+import './home.scss';
 
-export const Home = () => {
+const Home = () => {
+  const { t } = useTranslation();
   const { apiPost } = usePost("/clientes");
   const [showModal, setShowModal] = useState<ShowModalInterface>({
     show: false,
@@ -50,6 +52,7 @@ export const Home = () => {
     show: false,
     type: undefined
   });
+
   const handleShow = (type: "up" | "in" | undefined) => setShowModal({
     show: true,
     type: type
@@ -82,8 +85,8 @@ export const Home = () => {
           <Col>
             <Landing />
             <div className="d-grid gap-2 d-md-flex justify-content-md-evenly">
-              <Button onClick={() => handleShow("in")}>Entrar</Button>
-              <Button onClick={() => handleShow("up")}>Cadastrar</Button>
+              <Button onClick={() => handleShow("in")}>{t('login.entrar')}</Button>
+              <Button onClick={() => handleShow("up")}>{t('login.cadastro')}</Button>
             </div>
           </Col>
           <Col></Col>
@@ -96,3 +99,5 @@ export const Home = () => {
 
   );
 };
+
+export default Home;
