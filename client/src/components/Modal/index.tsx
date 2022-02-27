@@ -11,9 +11,10 @@ interface ModalProps {
     show: ShowModalInterface;
     handleClose: () => void;
     onCadastroCliente: (cliente: Cliente) => void;
+    onLoginCliente: () => void;
 }
 
-export const SignInUpModal = ({ show, handleClose, onCadastroCliente }: ModalProps) => {
+export const SignInUpModal = ({ show, handleClose, onCadastroCliente, onLoginCliente }: ModalProps) => {
     const { t } = useTranslation();
     const [cliente, setCliente] = useState<TemporaryClientState>();
     const checkMissingClientData = () => {
@@ -64,7 +65,7 @@ export const SignInUpModal = ({ show, handleClose, onCadastroCliente }: ModalPro
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>{t('modal.fechar')}</Button>
-                <Button variant="primary" disabled={checkMissingClientData()} onClick={handleFormSubmit}>{t('modal.salvar')}</Button>
+                <Button variant="primary" onClick={onLoginCliente}>{t('modal.salvar')}</Button>
             </Modal.Footer>
         </Modal>
     ) : <></>;

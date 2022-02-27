@@ -8,6 +8,7 @@ export const Header = () => {
     <Navbar expand="lg">
       <Container>
         <NavbarBrand className="navbar-home" href="/">{t('home.title')}</NavbarBrand>
+        <NavbarBrand href="/clientes">{t('home.clients')}</NavbarBrand>
       </Container>
     </Navbar>
   );
