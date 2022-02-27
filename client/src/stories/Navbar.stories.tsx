@@ -14,6 +14,8 @@ export const Main = Template.bind({});
 Main.args = {
   bg: "light",
   label: "Default Navbar",
+  backgroundColor: "#14213D",
+  color: "#FCA311"
 };
 
 export const Dark = Template.bind({});
@@ -21,11 +23,4 @@ Dark.args = {
   backgroundColor: "dark",
   color: "#fdfbfb",
   label: "Dark Navbar",
-};
-
-export const Customized = Template.bind({});
-Customized.args = {
-  backgroundColor: "#14213D",
-  label: "Customized Navbar",
-  color: "#FCA311",
 };

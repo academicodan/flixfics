@@ -8,7 +8,7 @@ export interface ModalProps extends ModalDialogProps {
   handleFormSubmit: () => {};
 }
 
-const Modal = ({ handleClose, title, children, disabled, handleFormSubmit, ...props }: ModalProps) => {
+export const Modal = ({ handleClose, title, children, disabled, handleFormSubmit, ...props }: ModalProps) => {
   return (
     <BTModal onHide={handleClose} {...props}>
       <BTModal.Header closeButton>
