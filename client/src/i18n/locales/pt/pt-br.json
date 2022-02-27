@@ -31,6 +31,13 @@
                 "sair": "Sair"
             } 
         },
-        "fallback": "Carregando..."
+        "fallback": "Carregando...",
+        "clients": {
+            "title": "Clientes da Flixfics",
+            "description": "Aqui você encontra uma lista de todos os nossos clientes com email para contato, caso deseje trocar informaçoes relacionadas a algum filme",
+            "firstname": "Nome",
+            "lastname": "Sobrenome",
+            "email": "Email"
+        }
     }
 }
