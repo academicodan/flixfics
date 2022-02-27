@@ -6,13 +6,13 @@ import { usePost } from "../../hooks/customHooks";
 import { ListUserReview } from "../../components/ListUserReview";
 import { UserReviewProps } from "../../components/UserReview";
 // import LoginHooks from "../../hooks/loginHooks";
-import './home.scss';
 import { Landing } from "../../components/Landing";
 import { SignInUpModal } from "../../components/Modal";
 import { ShowModalInterface } from "../../types/modal";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@apollo/client";
 import { CREATE_CLIENTE_MUTATION } from "../../graphql/Mutations";
+import './home.scss';
 
 const Home = () => {
   const { t } = useTranslation();

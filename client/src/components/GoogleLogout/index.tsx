@@ -6,14 +6,14 @@ const clientId = '886439942997-46a4cuoar289c5mauasj3338mp11ogq9.apps.googleuserc
 function Logout() {
     const { t } = useTranslation();
     const onSuccess = () => {
-        alert(t('logout.success'));
+        alert(t('logout.sucesso'));
     };
     
     return (
         <div>
             <GoogleLogout
                 clientId={clientId}
-                buttonText={t('logout.success')}
+                buttonText={t('logout.sucesso')}
                 onLogoutSuccess={onSuccess}
             />
         </div>

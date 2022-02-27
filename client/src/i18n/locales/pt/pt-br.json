@@ -6,9 +6,9 @@
             "senha": "Senha",
             "email": "Email"
         },
-        "home": {
-            "title": "FLIXFICS",
-            "clients": "Clientes"
+        "pagina_inicial": {
+            "titulo": "FLIXFICS",
+            "clientes": "Clientes"
         },
         "copyright": "Copyright© 2022",
         "login": {
@@ -18,7 +18,7 @@
             "cadastro": "Cadastrar"
         },
         "logout": { 
-            "success": "Saída feita com sucesso!",
+            "sucesso": "Saída feita com sucesso!",
             "label": "Sair"
         },
         "modal": {
