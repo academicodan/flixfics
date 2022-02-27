@@ -2,10 +2,10 @@ import { Button, Modal as BTModal, ModalDialogProps } from "react-bootstrap";
 
 export interface ModalProps extends ModalDialogProps {
   children: JSX.Element;
-  handleClose: () => {};
+  handleClose?: () => {};
   title: string;
-  disabled: boolean;
-  handleFormSubmit: () => {};
+  disabled?: boolean;
+  handleFormSubmit?: () => {};
 }
 
 export const Modal = ({ handleClose, title, children, disabled, handleFormSubmit, ...props }: ModalProps) => {

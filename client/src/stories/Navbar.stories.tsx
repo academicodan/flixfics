@@ -1,12 +1,14 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Navbar from "./Navbar";
+import { Story, Meta } from "@storybook/react";
+import Navbar, { NavProps } from "./Navbar";
 
-export const meta = {
+const meta: Meta = {
   title: "Navbar",
   component: Navbar,
-} as ComponentMeta<typeof Navbar>;
+}
 
-const Template: ComponentStory<typeof Navbar> = (args) => (
+export default meta;
+
+const Template: Story<NavProps> = (args) => (
   <Navbar {...args} />
 );
 
@@ -18,9 +20,4 @@ Main.args = {
   color: "#FCA311"
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-  backgroundColor: "dark",
-  color: "#fdfbfb",
-  label: "Dark Navbar",
-};
+

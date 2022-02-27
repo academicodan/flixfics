@@ -1,6 +1,6 @@
 import { Container, Navbar as Nav, NavbarBrand, NavbarProps } from "react-bootstrap";
 
-interface NavProps extends NavbarProps {
+export interface NavProps extends NavbarProps {
   label: string;
   color?: string;
   backgroundColor?: string;
