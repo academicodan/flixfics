@@ -29,12 +29,12 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <ApolloProvider client={client}>
-          <React.Suspense fallback={loading}>
+        <React.Suspense fallback={loading}>
+          <ApolloProvider client={client}>
             <Route path="/" exact component={lazyHome} />
             <Route path="/clientes" component={lazyClientList} />
-          </React.Suspense>
-        </ApolloProvider>
+            </ApolloProvider>
+        </React.Suspense>  
       </Switch>
     </BrowserRouter>
   );

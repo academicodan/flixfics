@@ -9,22 +9,22 @@ import { useTranslation } from "react-i18next";
 
 const ClientList = () => {
   const [clientes, setClientes] = useState<Cliente[]>([]);
+  console.log("clientes: ", clientes);
   const { data, loading, error } = useQuery(LOAD_CLIENTES);
+  console.log("data: ", data);
 
   const { t } = useTranslation();
 
   useEffect(() => {
     if (data) {
-      setClientes(data.getAllClientes);
+      setClientes(data.getAllClients);
     }
   }, [data]);
 
   return (
     <Container>
-      <h2 className="title-client">{t('clients.title')}</h2>
-      <p className="description-client">
-        {t('clients.description')}
-      </p>
+      <h2 className="title-client">{t("clients.title")}</h2>
+      <p className="description-client">{t("clients.description")}</p>
       <hr className="solid" />
       <Table striped bordered hover>
         <thead
@@ -33,9 +33,9 @@ const ClientList = () => {
             color: "#FFFFFF",
           }}
         >
-          <th>{t('clients.firstname')}</th>
-          <th>{t('clients.lastname')}</th>
-          <th>{t('clients.email')}</th>
+          <th>{t("clients.firstname")}</th>
+          <th>{t("clients.lastname")}</th>
+          <th>{t("clients.email")}</th>
         </thead>
         <tbody>
           {clientes.map((client, idx) => (

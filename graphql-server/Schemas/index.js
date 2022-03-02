@@ -1,19 +1,18 @@
 const graphql = require("graphql");
-const ClienteType = require("./TypeDefs/ClienteType");
+const ClientType = require("./TypeDefs/ClientType");
 
 const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString } = graphql;
 
-const ClienteData = require("../demo_data.json");
+const clientData = require("../demo_data.json");
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQueryType",
     fields: {
-        getAllClientes: { 
-            type: new GraphQLList(ClienteType),
+        getAllClients: { 
+            type: new GraphQLList(ClientType),
             args: { id: { type: GraphQLInt}},
             resolve(parent, args) {
-                // Acesso a um DB - vamos fazer?
-                return ClienteData;
+                return clientData;
             }
         }
     }
@@ -23,7 +22,7 @@ const Mutation = new GraphQLObjectType({
     name: "Mutation",
     fields: {
         createCliente: {
-            type: ClienteType,
+            type: ClientType,
             args: {
                 nome: { type: GraphQLString },
                 sobrenome: { type: GraphQLString },
@@ -31,8 +30,8 @@ const Mutation = new GraphQLObjectType({
                 senha: { type: GraphQLString }
             },
             resolve(parents, args) {
-                ClienteData.push({
-                    id: ClienteData.length + 1,
+                clientData.push({
+                    id: clientData.length + 1,
                     nome: args.nome,
                     sobrenome: args.sobrenome,
                     email: args.email,
