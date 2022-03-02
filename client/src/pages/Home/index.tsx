@@ -23,7 +23,6 @@ const Home = () => {
   });
 
   const [clientes, setClientes] = useState<Cliente[]>([]);
-  console.log("clientes", clientes);
 
   const [createCliente, { error }] = useMutation(CREATE_CLIENTE_MUTATION)
 

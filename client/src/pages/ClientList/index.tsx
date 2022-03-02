@@ -9,9 +9,7 @@ import { useTranslation } from "react-i18next";
 
 const ClientList = () => {
   const [clientes, setClientes] = useState<Cliente[]>([]);
-  console.log("clientes: ", clientes);
   const { data, loading, error } = useQuery(LOAD_CLIENTES);
-  console.log("data: ", data);
 
   const { t } = useTranslation();
 
