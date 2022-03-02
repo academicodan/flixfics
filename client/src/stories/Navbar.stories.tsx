@@ -1,23 +1,36 @@
 import { Story, Meta } from "@storybook/react";
-import Navbar, { NavProps } from "./Navbar";
+import { Container, Navbar, NavbarBrand, NavbarProps } from "react-bootstrap";
 
 const meta: Meta = {
   title: "Navbar",
   component: Navbar,
-}
+};
 
 export default meta;
 
+interface NavProps extends NavbarProps {
+  label: string;
+  color?: string;
+  backgroundColor?: string;
+}
+
 const Template: Story<NavProps> = (args) => (
-  <Navbar {...args} />
+  <Navbar
+    bg={args.bg}
+    style={{ backgroundColor: args.backgroundColor }}
+    expand={args.expand}
+    variant={args.variant}
+  >
+    <Container>
+      <NavbarBrand style={{ color: args.color }}>{args.label}</NavbarBrand>
+    </Container>
+  </Navbar>
 );
 
 export const Main = Template.bind({});
 Main.args = {
-  bg: "light",
-  label: "Default Navbar",
   backgroundColor: "#14213D",
-  color: "#FCA311"
+  label: "Default Navbar",
+  color: "#FCA311",
+  expand: "lg",
 };
-
-
